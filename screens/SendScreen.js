@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {View,Text} from 'react-native'
+import { withNavigation } from 'react-navigation';
 
-export default class SendScreen extends Component{
+ class SendScreen extends Component{
     render(){
         return(
           <View>
@@ -10,3 +11,5 @@ export default class SendScreen extends Component{
         );
     }
 };
+
+export default withNavigation(SendScreen);

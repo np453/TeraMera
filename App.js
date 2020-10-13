@@ -1,4 +1,4 @@
-import AppContainer from './screens/MainScreen.js'
+import AppContainer from './screens/ConnectScreen.js'
 
 const App= AppContainer;
 

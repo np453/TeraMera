@@ -1,6 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable prettier/prettier */
+// /* eslint-disable react-native/no-inline-styles */
+// /* eslint-disable react/react-in-jsx-scope */
+// /* eslint-disable prettier/prettier */
+import React from 'react'
 import {
   createSwitchNavigator,
   createDrawerNavigator,
@@ -11,19 +12,23 @@ import MainScreen from './MainScreen';
 import ConnectScreen from './ConnectScreen.js';
 import ReceiveScreen from './ReceiveScreen.js';
 import SendScreen from './SendScreen.js';
-import {Icon} from 'react-native-vector-icons';
+import {Icon,Foundation} from 'react-native-vector-icons';
+
+
+
 const MainStackNavigator = createStackNavigator(
   {
     screen: MainScreen,
   },
   {
-    defaultNavigationOptions: ({navigation}) => {
+    navigationOptions: ({navigation}) => {
       return {
-        headerLeft: (
-          <Icon
+        headerTitle: "Main",
+        headerRight: (
+          <Button
             style={{paddingLeft: 10}}
-            onPress={() => navigation.openDrawer()}
-            name="md-menu"
+            onPress={() => {navigation.openDrawer()}}
+            title="list"
             size={30}
           />
         ),
@@ -37,13 +42,13 @@ const ConnectStackNavigator = createStackNavigator(
     screen: ConnectScreen,
   },
   {
-    defaultNavigationOptions: ({navigation}) => {
+    navigationOptions: ({navigation}) => {
       return {
-        headerLeft: (
-          <Icon
+        headerRight: (
+          <Button
             style={{paddingLeft: 10}}
-            onPress={() => navigation.openDrawer()}
-            name="md-menu"
+            onPress={() => navigation.navigationOptions.toggleDrawer()}
+            title="md-menu"
             size={30}
           />
         ),
@@ -57,7 +62,7 @@ const ReceiveStackNavigator = createStackNavigator(
     screen: ReceiveScreen,
   },
   {
-    defaultNavigationOptions: ({navigation}) => {
+    navigationOptions: ({navigation}) => {
       return {
         headerLeft: (
           <Icon
@@ -77,7 +82,7 @@ const SendStackNavigator = createStackNavigator(
     screen: SendScreen,
   },
   {
-    defaultNavigationOptions: ({navigation}) => {
+    navigationOptions: ({navigation}) => {
       return {
         headerLeft: (
           <Icon
@@ -123,4 +128,4 @@ const AppSwitchNavigator = createSwitchNavigator({
 });
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
-export default AppContainer;
+export default AppContainer ;

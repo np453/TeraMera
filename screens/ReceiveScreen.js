@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {View,Text} from 'react-native'
+import { withNavigation } from 'react-navigation';
 
-export default class ReceiveScreen extends Component{
+
+class ReceiveScreen extends Component{
     render(){
         return(
           <View>
@@ -10,3 +12,5 @@ export default class ReceiveScreen extends Component{
         );
     }
 };
+
+export default withNavigation(ReceiveScreen);
